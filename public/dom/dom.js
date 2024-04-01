@@ -74,7 +74,7 @@ const jsonResponse = {
     lista.classList.add("list-group");
     lista.classList.add("list-group-flush");
     imagen = document.createElement("img");
-    imagen.src = `${/public/ + jsonResponse.SeleccionArgentina[posicion].imagen}`;
+    imagen.src = `${jsonResponse.SeleccionArgentina[posicion].imagen}`;
     imagen.style.width = "35px";
     for (const jugadores in jsonResponse.SeleccionArgentina[posicion].jugadores) {
       li = document.createElement("li");
