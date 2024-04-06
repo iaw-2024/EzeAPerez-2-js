@@ -2,7 +2,7 @@ let jsonResponse;
 
 //obtiene el json del servidor y llama a la funcion crearLista
 function generarListado() {
-  fetch("/json")
+  fetch("https://eze-a-perez-2-js-git-entrega-ezequiels-projects-07f289df.vercel.app/json")
     .then((response) => response.json())
     .then((data) => {
       jsonResponse = data;
