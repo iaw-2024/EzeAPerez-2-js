@@ -2,7 +2,7 @@ let jsonResponse;
 
 //obtiene el json del servidor y llama a la funcion crearLista
 function generarListado() {
-  fetch("http://localhost:3001/json")
+  fetch("/json")
     .then((response) => response.json())
     .then((data) => {
       jsonResponse = data;
@@ -24,7 +24,6 @@ function crearLista() {
   contenedor.appendChild(h2);
   for (const posicion in jsonResponse.SeleccionArgentina) {
     contenedor.appendChild(crearContenedorPosicion(posicion));
-    console.log("entre");
   }
   document.body.appendChild(contenedor);
 }
