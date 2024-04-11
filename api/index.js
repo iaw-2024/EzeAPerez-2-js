@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const cors = require('cors');
 const app = express();
 
@@ -51,8 +51,25 @@ const jsonResponse = {
     },
   };
 
-app.get("/express", (req, res) => res.send("Express on Vercel!"));
-app.get("/cliente_servidor", (req, res) => res.send("Cliente Servidor on Vercel!"));
+app.get("/express", (req, res) => {
+  let listaJugadores = '<h2>Seleccion Argentina:</h2>';
+  //recorrer las posiciones y sus jugadores
+  for (const posicion in jsonResponse.SeleccionArgentina) {
+    listaJugadores += '<div class="container-sm mt-3">';
+    listaJugadores += `<h3>${posicion}</h3>`;
+    listaJugadores += '<ul class="list-group-flush">';
+    imagen = `<img src="./${jsonResponse.SeleccionArgentina[posicion].imagen}" style="width: 35px;"/>`;
+    for (const jugadores in jsonResponse.SeleccionArgentina[posicion]
+      .jugadores) {
+      listaJugadores += `<li class="list-group-item">${imagen} - ${jsonResponse.SeleccionArgentina[posicion].jugadores[jugadores].nombre}</li>`;
+    }
+    listaJugadores += '</ul>';
+  }
+
+res.send(`<div>${listaJugadores}</div>`);
+});
+
+
 app.get("/json", (req, res) => {
   res.json(jsonResponse);
 });
