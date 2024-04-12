@@ -66,7 +66,7 @@ app.get("/express", (req, res) => {
         <nav class="navbar sticky-top bg-body-tertiary">
           <div class="container-fluid">
             <a class="navbar-brand">
-              Listado con Bootstrap
+              Listado con express
             </a>
           </div>
         </nav>
